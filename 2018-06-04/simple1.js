@@ -1,40 +1,14 @@
-<html>
+main();
 
-<head>
+function main() {
+    const canvas = document.querySelector("#glcanvas");
+    const gl = canvas.getContext("webgl");
 
-</head>
-
-<body>
-    <canvas id="glcanvas" width="640" height="480">
-        Your browser doesn't appear to support the HTML5
-        <code>&lt;canvas&gt;</code> element.
-    </canvas>
-</body>
-<script>
-    window.onload = function () {
-        main();
+    if (!gl) {
+        alert("无法初始化webgl。你的浏览器或者机器不支持它");
     }
 
-    //
-    // start here
-    //
-    function main() {
-        const canvas = document.querySelector("#glcanvas");
-        // Initialize the GL context
-        const gl = canvas.getContext("webgl");
+    gl.clearColor(0.0, 0.0, 0.0, 1.0);
+    gl.clear(gl.COLOR_BUFFER_BIT);
 
-        // Only continue if WebGL is available and working
-        if (!gl) {
-            alert("Unable to initialize WebGL. Your browser or machine may not support it.");
-            return;
-        }
-
-        // Set clear color to black, fully opaque
-        gl.clearColor(0.0, 0.0, 0.0, 1.0);
-        // Clear the color buffer with specified clear color
-        gl.clear(gl.COLOR_BUFFER_BIT);
-    }
-
-</script>
-
-</html>
+}

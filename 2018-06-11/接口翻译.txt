@@ -1,0 +1,4 @@
+rendering 渲染
+primitives 图元
+blending 混合
+shader 着色器
